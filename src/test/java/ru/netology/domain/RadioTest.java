@@ -10,9 +10,9 @@ class RadioTest {
 
     @Test
     void increaseVolume() {
-        radio.currentVolume = 11;
-        radio.increaseVolume(radio.currentVolume);
-        int expected = 11;
+        radio.currentVolume = 100;
+        radio.increaseVolume();
+        int expected = 100;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -20,81 +20,42 @@ class RadioTest {
 
     @Test
     void decreaseVolume() {
-        radio.currentVolume = -2;
-        radio.decreaseVolume(radio.currentVolume);
-        int expected = -2;
+        radio.currentVolume = 3;
+        radio.decreaseVolume();
+        int expected = 2;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
     }
 
-    @Test
-    void increaseVolumeMoreThanMax() {
-        radio.currentVolume = 11;
-        radio.increaseVolumeMoreThanMax(radio.currentVolume);
-        int expected = 11;
-        int actual = radio.currentVolume;
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void decreaseVolumeLowThanMin() {
-        radio.currentVolume = -2;
-        radio.decreaseVolumeLowThanMin(radio.currentVolume);
-        int expected = -2;
-        int actual = radio.currentVolume;
-
-        assertEquals(expected, actual);
-    }
 
     @Test
     void next() {
-        radio.currentChannel = 10;
-        radio.next(radio.currentChannel);
-        int expected = 10;
+        radio.currentChannel = 5;
+        radio.next();
+        int expected = 6;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
     }
 
-    @Test
-    void nextAfterMax() {
-        radio.currentChannel = 8;
-        radio.nextAfterMax(radio.currentChannel);
-        int expected = 8;
-        int actual = radio.currentChannel;
-
-        assertEquals(expected, actual);
-    }
 
     @Test
     void prev() {
-        radio.currentChannel = -5;
-        radio.prev(radio.currentChannel);
-        int expected = -5;
+        radio.currentChannel = 0;
+        radio.prev();
+        int expected = 9;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
     }
 
-    @Test
-    void prevBeforeMin() {
-        radio.currentChannel = 5;
-        radio.prevBeforeMin(radio.currentChannel);
-        int expected = 5;
-        int actual = radio.currentChannel;
-
-        assertEquals(expected, actual);
-    }
 
     @Test
     void setNewChannel() {
-        radio.currentChannel = 5;
-        radio.newChannel = 9;
-        radio.setNewChannel(radio.currentChannel, radio.newChannel);
-        int expected = 9;
-        int actual = radio.newChannel;
+        radio.setNewChannel(-50);
+        int expected = 0;
+        int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
     }
