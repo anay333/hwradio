@@ -68,7 +68,6 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-
     @Test
     void prev() {
         radio.currentChannel = 6;
@@ -78,7 +77,6 @@ class RadioTest {
 
         assertEquals(expected, actual);
     }
-
 
     @Test
     void setNewChannel() {
