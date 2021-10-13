@@ -9,10 +9,39 @@ class RadioTest {
     Radio radio = new Radio();
 
     @Test
+    public void shouldGetAndSetMaxVolume() {
+        int expected = 10;
+        radio.setMaxVolume(expected);
+        assertEquals(expected, radio.getMaxVolume());
+    }
+
+    @Test
+    public void shouldGetAndSetMinVolume() {
+        int expected = 0;
+        int actual = radio.getMinVolume();
+        radio.setMinVolume(expected);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldGetAndSetMaxChannel() {
+        int expected = 9;
+        radio.setMaxChannel(expected);
+        assertEquals(expected, radio.getMaxChannel());
+    }
+
+    @Test
+    public void shouldGetAndSetMinChannel() {
+        int expected = 0;
+        radio.setMinChannel(expected);
+        assertEquals(expected, radio.getMinChannel());
+    }
+
+    @Test
     void increaseVolume() {
-        radio.currentVolume = 100;
+        radio.currentVolume = 6;
         radio.increaseVolume();
-        int expected = 100;
+        int expected = 7;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -20,9 +49,9 @@ class RadioTest {
 
     @Test
     void decreaseVolume() {
-        radio.currentVolume = 3;
+        radio.currentVolume = -3;
         radio.decreaseVolume();
-        int expected = 2;
+        int expected = -3;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -31,9 +60,9 @@ class RadioTest {
 
     @Test
     void next() {
-        radio.currentChannel = 5;
+        radio.currentChannel = 9;
         radio.next();
-        int expected = 6;
+        int expected = 0;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
@@ -42,9 +71,9 @@ class RadioTest {
 
     @Test
     void prev() {
-        radio.currentChannel = 0;
+        radio.currentChannel = 6;
         radio.prev();
-        int expected = 9;
+        int expected = 5;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
@@ -53,8 +82,8 @@ class RadioTest {
 
     @Test
     void setNewChannel() {
-        radio.setNewChannel(-50);
-        int expected = 0;
+        radio.setNewChannel(5);
+        int expected = 5;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);

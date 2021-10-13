@@ -4,8 +4,8 @@ public class Radio {
 
     public int currentVolume;
     public int currentChannel;
-    private int minVolume;
     private int maxVolume;
+    private int minVolume;
     private int minChannel;
     private int maxChannel;
 
@@ -14,88 +14,78 @@ public class Radio {
     }
 
     public void setMaxVolume(int maxVolume) {
+
         this.maxVolume = maxVolume;
     }
 
     public int getMinVolume() {
+
         return minVolume;
     }
 
     public void setMinVolume(int minVolume) {
+
         this.minVolume = minVolume;
     }
 
     public int getMaxChannel() {
+
         return maxChannel;
     }
 
-    public void setMaxChannel() {
+    public void setMaxChannel(int maxChannel) {
+
         this.maxChannel = maxChannel;
     }
 
     public int getMinChannel() {
-        return maxChannel;
+
+        return minChannel;
     }
 
-    public void setMinChannel() {
+    public void setMinChannel(int minChannel) {
+
         this.minChannel = minChannel;
     }
 
     public void increaseVolume() {
-        int minVolume=0;
-        int maxVolume=10;
-        if (currentVolume < maxVolume) {
+        if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume == maxVolume) {
-            currentVolume = currentVolume;
-        }
-
     }
 
     public void decreaseVolume() {
-        int minVolume=0;
-        int maxVolume=10;
-        if (currentVolume > minVolume) {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
-        }
-        if (currentVolume == minVolume) {
-            currentVolume = currentVolume;
         }
     }
 
 
     public void next() {
-        int maxChannel=9;
-        int minChannel=0;
-        if (currentChannel < maxChannel) {
+        if (currentChannel < 9) {
             currentChannel = currentChannel + 1;
         }
-        if (currentChannel == maxChannel) {
-            currentChannel = minChannel;
+        if (currentChannel == 9) {
+            currentChannel = 0;
         }
     }
 
 
     public void prev() {
-        int maxChannel=9;
-        int minChannel=0;
-        if (currentChannel > minChannel) {
+        if (currentChannel > 0) {
             currentChannel = currentChannel - 1;
         }
-        if (currentChannel == minChannel) {
-            currentChannel = maxChannel;
+        if (currentChannel == 0) {
+            currentChannel = 9;
         }
     }
 
 
     public void setNewChannel(int newChannel) {
-        int maxChannel=9;
-        int minChannel=0;
-        if (newChannel > maxChannel) {
+        if (newChannel > 9) {
             return;
         }
-        if (newChannel < minChannel) {
+        if (newChannel < 0) {
             return;
         }
         currentChannel = newChannel;
