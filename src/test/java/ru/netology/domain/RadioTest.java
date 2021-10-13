@@ -39,9 +39,9 @@ class RadioTest {
 
     @Test
     void increaseVolume() {
-        radio.currentVolume = 6;
+        radio.currentVolume = 10;
         radio.increaseVolume();
-        int expected = 7;
+        int expected = 10;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -49,9 +49,9 @@ class RadioTest {
 
     @Test
     void decreaseVolume() {
-        radio.currentVolume = -3;
+        radio.currentVolume = -50;
         radio.decreaseVolume();
-        int expected = -3;
+        int expected = -50;
         int actual = radio.currentVolume;
 
         assertEquals(expected, actual);
@@ -60,9 +60,9 @@ class RadioTest {
 
     @Test
     void next() {
-        radio.currentChannel = 9;
+        radio.currentChannel = 100;
         radio.next();
-        int expected = 0;
+        int expected = 100;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
@@ -70,9 +70,9 @@ class RadioTest {
 
     @Test
     void prev() {
-        radio.currentChannel = 6;
+        radio.currentChannel = 5;
         radio.prev();
-        int expected = 5;
+        int expected = 4;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);
@@ -80,8 +80,8 @@ class RadioTest {
 
     @Test
     void setNewChannel() {
-        radio.setNewChannel(5);
-        int expected = 5;
+        radio.setNewChannel(-5);
+        int expected = 0;
         int actual = radio.currentChannel;
 
         assertEquals(expected, actual);

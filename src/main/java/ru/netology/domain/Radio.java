@@ -60,13 +60,14 @@ public class Radio {
         }
     }
 
-    public void next() {
-        if (currentChannel < 9) {
-            currentChannel = currentChannel + 1;
+    public int next() {
+        if (currentChannel <= 9) {
+            currentChannel = currentChannel +1;
         }
-        if (currentChannel == 9) {
+        if (currentChannel == 10) {
             currentChannel = 0;
         }
+        return currentChannel;
     }
 
 
