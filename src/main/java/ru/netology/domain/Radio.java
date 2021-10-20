@@ -49,20 +49,20 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }
 
     public int next() {
-        if (currentChannel <= 9) {
-            currentChannel = currentChannel +1;
+        if (currentChannel <= maxChannel) {
+            currentChannel = currentChannel + 1;
         }
         if (currentChannel == 10) {
             currentChannel = 0;
@@ -72,7 +72,7 @@ public class Radio {
 
 
     public void prev() {
-        if (currentChannel > 0) {
+        if (currentChannel > minChannel) {
             currentChannel = currentChannel - 1;
         }
         if (currentChannel == 0) {
