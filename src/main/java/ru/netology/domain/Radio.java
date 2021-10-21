@@ -2,12 +2,12 @@ package ru.netology.domain;
 
 public class Radio {
 
-    public int currentVolume;
-    public int currentChannel;
-    private int maxVolume;
-    private int minVolume;
-    private int minChannel;
-    private int maxChannel;
+    private int currentVolume;
+    private int currentChannel;
+    private int maxVolume = 10;
+    private int minVolume = 0;
+    private int minChannel = 0;
+    private int maxChannel = 9;
 
     public int getMaxVolume() {
         return maxVolume;
@@ -48,6 +48,33 @@ public class Radio {
         this.minChannel = minChannel;
     }
 
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume > maxVolume) {
+            return;
+        }
+        if (newCurrentVolume < minVolume) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    public void setCurrentChannel(int newCurrentChannel) {
+        if (newCurrentChannel > maxChannel) {
+            return;
+        }
+        if (newCurrentChannel< minChannel) {
+            return;
+        }
+        currentChannel = newCurrentChannel;
+    }
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public int getCurrentChannel() {
+        return currentChannel;
+    }
+
     public void increaseVolume() {
         if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
@@ -60,32 +87,31 @@ public class Radio {
         }
     }
 
-    public int next() {
+    public void next() {
         if (currentChannel <= maxChannel) {
             currentChannel = currentChannel + 1;
         }
         if (currentChannel == 10) {
             currentChannel = 0;
         }
-        return currentChannel;
     }
 
 
     public void prev() {
-        if (currentChannel > minChannel) {
+        if (currentChannel >= minChannel) {
             currentChannel = currentChannel - 1;
         }
-        if (currentChannel == 0) {
+        if (currentChannel == -1) {
             currentChannel = 9;
         }
     }
 
 
     public void setNewChannel(int newChannel) {
-        if (newChannel > 9) {
+        if (newChannel > maxChannel) {
             return;
         }
-        if (newChannel < 0) {
+        if (newChannel < minChannel) {
             return;
         }
         currentChannel = newChannel;
