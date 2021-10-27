@@ -101,7 +101,7 @@ public class Radio {
         currentChannel = currentChannel - 1;
 
         if (currentChannel == -1) {
-            currentChannel = 9;
+            currentChannel = maxChannel;
         }
     }
 
