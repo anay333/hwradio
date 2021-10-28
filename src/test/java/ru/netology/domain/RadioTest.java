@@ -46,7 +46,7 @@ class RadioTest {
 
     @Test
     public void shouldSetCurrentChannel() {
-        radio.setCurrentChannel(-50);
+        radio.setCurrentChannel(500);
         int expected = 0;
         assertEquals(expected, radio.getCurrentChannel());
     }
