@@ -182,6 +182,7 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @Test
     void prev4() {
         radio.setCurrentChannel(5);
         radio.prev();
