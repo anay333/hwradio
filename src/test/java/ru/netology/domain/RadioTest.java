@@ -39,14 +39,14 @@ class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume() {
-        radio.setCurrentVolume(-500);
+        radio.setCurrentVolume(0);
         int expected = 0;
         assertEquals(expected, radio.getCurrentVolume());
     }
 
     @Test
     public void shouldSetCurrentChannel() {
-        radio.setCurrentChannel(500);
+        radio.setCurrentChannel(0);
         int expected = 0;
         assertEquals(expected, radio.getCurrentChannel());
     }
