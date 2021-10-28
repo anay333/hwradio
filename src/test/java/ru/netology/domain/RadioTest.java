@@ -84,7 +84,7 @@ class RadioTest {
 
     @Test
     void prev() {
-        radio.setCurrentChannel(-1);
+        radio.setCurrentChannel(0);
         radio.prev();
         int expected = 9;
         int actual = radio.getCurrentChannel();
