@@ -94,7 +94,7 @@ class RadioTest {
 
     @Test
     void setNewChannel() {
-        radio.setNewChannel(500);
+        radio.setNewChannel(-500);
         int expected = 0;
         int actual = radio.getCurrentChannel();
 
