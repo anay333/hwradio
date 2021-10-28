@@ -63,7 +63,7 @@ class RadioTest {
 
     @Test
     void decreaseVolume() {
-        radio.setCurrentVolume(0);
+        radio.setCurrentVolume(-60);
         radio.decreaseVolume();
         int expected = 0;
         int actual = radio.getCurrentVolume();
